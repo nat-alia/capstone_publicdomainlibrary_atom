@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Public Domain Library</title>
+
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/lyw0pfu.css">
+    <!-- end fonts-->
+
+
+  </head>
+  <body>
+
+
+    <!--header-->
+    <header>
+      <div></div>
+      <div class="logo">The</br><span class="logo-sans"> Public Domain </span></br>Library</div>
+      <div class="link"></br>Menu</div>
+    </header>
+
+    <!--end header-->
+
+    <div class="catalog" id="app">
+        {{ message }}
+
+      <div class="book-grid">
+
+        <!-- <book id="book-one" titleprop="Emma" authorprop="Jane Austen"></book>
+        <book id="book-two" titleprop="Moby Dick" authorprop="Herman Miller"></book> -->
+
+        <book v-for="book in books" :url = "book.url" :titleprop="book.title" :authorprop="book.author" :themeprop="book.themes" :numberprop="book.number"></book>
+
+
+    </div>
+    </div>
+
+
+
+<!--templates-->
+
+<script type="text/x-template" id="book-template">
+
+<div class="bookspace">
+
+  <div class="book" @mouseover="hover = true" @mouseleave="hover = false" :class="type">
+    <div class="spine"></div>
+    <div class="title">{{ titleprop }}</div>
+  <div class="author">{{ authorprop }}</div>
+  </div>
+
+<div class="info-bundle">
+  <div class="themes">{{ themeprop }}</div>
+  <div class="arrow link">⟶</div>
+</div>
+
+<div class="sticker-group sticker">
+  <div class="sticker-text">
+    <div class="number">{{ numberprop }}</div>
+      <div>Contemporary Works</div>
+  </div>
+</div>
+
+<div v-if:"book.female" class="sticker-group sticker female-sticker">
+  <div class="sticker-text">
+      <div>Female Writer</div>
+  </div>
+</div>
+
+<!-- <div class="bg-image">
+<img v-bind:src="{{url}}">
+</div> -->
+
+</div>
+</script>
+
+
+
+<script type="text/x-template" id="page-template">
+
+
+
+</script>
+
+
+
+
+    <!-- development version, includes helpful console warnings -->
+
+    <!--css-->
+<script src="jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+<link rel="stylesheet" href="css/mainstyle.css">
+
+
+
+
+
+  </body>
+</html>
